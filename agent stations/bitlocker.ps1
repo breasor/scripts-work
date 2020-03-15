@@ -2,6 +2,8 @@
 $RecoveryDisk = (Get-WmiObject -Query "Select * From Win32_LogicalDisk" | ? { $_.driveType -eq 2 }).DeviceID
 New-Item -ItemType Directory -Path $recoverydisk\Recovery -Force
 $SerialNo = (Get-CimInstance -ClassName Win32_Bios).serialnumber
+
+Get-BitLockerVolume C: | Enable-BitLocker -SkipHardwareTest -EncryptionMethod XtsAes128 -RecoveryPasswordProtector
 $BitlockerVolume = Get-BitLockerVolume C:
 $KeyProtectors = @($BitlockerVolume.KeyProtector)
 
