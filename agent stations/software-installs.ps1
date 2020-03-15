@@ -14,6 +14,15 @@ $softwareUrl = "https://github.com/breasor/scripts-work/raw/master/agent%20stati
 Start-BitsTransfer -Source $softwareUrl -Destination $env:TEMP\ResponderSetup.msi
 Start-Process "msiexec.exe" -ArgumentList "/i $env:TEMP\ResponderSetup.msi /qn"
 
+# Download & install Endicott screenconnect.msi
+$softwareUrl = "https://github.com/breasor/scripts-work/raw/master/agent%20stations/ENDICOTT/ConnectWiseControl.ClientSetup.msi"
+Start-BitsTransfer -Source $softwareUrl -Destination $env:TEMP\ConnectWiseControl.ClientSetup.msi
+Start-Process "msiexec.exe" -ArgumentList "/i $env:TEMP\ConnectWiseControl.ClientSetup.msi /qn"
+
+# Download & install ansafone screenconnect.msi
+$softwareUrl = "https://github.com/breasor/scripts-work/raw/master/agent%20stations/ANSAFONE/ConnectWiseControl.ClientSetup.msi"
+Start-BitsTransfer -Source $softwareUrl -Destination $env:TEMP\ConnectWiseControl.ClientSetup.msi
+Start-Process "msiexec.exe" -ArgumentList "/i $env:TEMP\ConnectWiseControl.ClientSetup.msi /qn"
 
 
 # Download & install Silverlight
