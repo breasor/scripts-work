@@ -37,3 +37,8 @@ $VerbosePreference = "continue"
 $softwareUrl = "https://github.com/breasor/scripts-work/raw/master/agent%20stations/Endicott/SophosSetup.exe"
 Start-BitsTransfer -Source $softwareUrl -Destination $env:TEMP\SophosSetup.exe
 Start-Process "$env:temp\SophosSetup.exe" -ArgumentList '--quiet --devicegroup="CSR Computers"'
+
+
+$softwareUrl = "https://teams.microsoft.com/downloads/desktopurl?env=production&plat=windows&arch=x64&managedInstaller=true&download=true"
+Start-BitsTransfer -Source $softwareUrl -Destination $env:TEMP\Teams_windows_x64.msi.msi
+Start-Process "msiexec.exe" -ArgumentList "/i $env:TEMP\Teams_windows_x64.msi.msi /qn"
